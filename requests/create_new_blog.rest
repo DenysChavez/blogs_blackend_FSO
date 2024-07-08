@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Micho Bonito",
+  "author": "Dan Quinn",
+  "url": "thequinnfamily.com",
+  "likes": 98450234985
+}
