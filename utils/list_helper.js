@@ -8,8 +8,21 @@ const totalLikes = (blogs) => {
   }, 0)
 }
 
+const favoriteBlog = (blogs) => {
+  const mostLikedBlog = blogs.reduce((maxLikesBlog, currentObject) => {
+    return (currentObject.likes > (maxLikesBlog.likes || 0)) ? currentObject : maxLikesBlog;
+  }, {});
+
+  return {
+    title: mostLikedBlog.title,
+    author: mostLikedBlog.author,
+    likes: mostLikedBlog.likes
+  }
+}
 
 
 module.exports = {
-  dummy, totalLikes
+  dummy,
+  totalLikes,
+  favoriteBlog,
 };
