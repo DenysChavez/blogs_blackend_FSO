@@ -39,7 +39,7 @@ const listWithOneBlog = [
 ];
 
   test("when list has one author with more blogs", () => {
-    const result = listHelper.mostMentionedAuthor(listWithOneBlog);
+    const result = listHelper.mostBlogs(listWithOneBlog);
     assert.deepEqual(result, { author: "Micho Quinn", blogs: 2 });
   });
 });
