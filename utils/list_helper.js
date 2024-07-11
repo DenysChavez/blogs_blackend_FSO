@@ -20,9 +20,27 @@ const favoriteBlog = (blogs) => {
   }
 }
 
+const mostMentionedAuthor = (blogs) => {
+  const authorCounts = blogs.reduce((counts, currentObject) => {
+    counts[currentObject.author] = (counts[currentObject.author] || 0) + 1;
+    return counts
+  }, {})
+
+  const mostMentioned = Object.keys(authorCounts).reduce((maxAuthor, author) => {
+    return authorCounts[author] > (authorCounts[maxAuthor] || 0) ? author : maxAuthor;
+  }, '')
+
+  return {
+    author: mostMentioned,
+    blogs: authorCounts[mostMentioned]
+  }
+}
+
+
 
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
+  mostMentionedAuthor,
 };
